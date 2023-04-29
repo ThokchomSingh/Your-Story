@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+          background-image: url("https://images.pexels.com/photos/1539225/pexels-photo-1539225.jpeg?cs=srgb&dl=pexels-james-wheeler-1539225.jpg&fm=jpg" );
+          background-attachment: fixed;
+          background-size: cover;
+          background-position: center center;
+          width: 100%;
+          height: 150%;
+          overflow: hidden;
+         
+        }h2 {
+        color: aliceblue;
+        text-align: left;
+
+    }
+
+    p {
+        color: aliceblue;
+    }
+
+    h1 {
+        color: white;
+        padding-top: 10%;
+        text-align: center;
+        
+    }
+
+    h3 {
+        color: aliceblue;
+        text-align: left;
+     
+    }
+
+.imgcontainer {
+   display: flex;
+   justify-content: center;
+  }
+
+.imgcontainer p {
+  text-align: center;
+  font-size: 2em;
+}
+
+#night {
+  display: flex;
+  justify-content: center;
+  font-size: 2em;
+  margin-top: -0%;
+}
+
+#buttoncontainer {
+
+display: flex;
+justify-content: center;
+}
+
+#narratebtncontainer{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 0.2%;
+        margin-bottom: 0.3%;
+    }
+    
+#narratebtncontainer #narrateButton{
+        font-family: 'Poppins';
+        color: white;
+        margin: 10px;
+        padding: 1vw 1.5vw;
+        background: none;
+        border: 3px solid rgb(3, 18, 30);
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 5px;
+
+}
+
+#narratebtncontainer #narrateButton:hover{
+        background-color: rgba(0, 255, 60, 0.681);
+}
+    
+    
+    @media only screen and (max-width: 820px) {
+
+            #title h1{
+                font-size: 5em;
+                text-align: center;
+            }
+    }
+
+#buttonpresent {
+    display: flex;
+justify-content: center;
+}
+
+</style>    
+</head>
+<body>
+
+
+    <audio autoplay="true" loop="true" src="night2.mp3" type="audio/mp3"></audio>
+
+    <div id="narratebtncontainer"><button id="narrateButton">READ FOR ME</button></div>
+
+    <div id="night">
+    <h1>NIGHT</h1>
+    </div>
+
+
+    <div class="imgcontainer">
+        <p id="narrate">SO MANY THINGS HAPPEN AND THEN JUST BEFORE YOU GO TO SLEEP 
+        <br> 
+        YOU ARE TAKEN BACK TO THE FACT OF THINKING ABOUT THE DAY AHEAD AND THE PREVIOUS DAY
+        <br>
+        <br>
+      
+        <br>SOMETIMES ALL YOU NEED IS TO SLEEP AND TAKE REST
+        <br>
+        <br>YOU EITHER SLEEP AND LIVE PRESENT OR CHOOSE TO GO TO THE NEXT DAY</p>
+    </div>
+
+
+    
+    <div id="buttonpresent">
+    <button onclick="location.href='index.html'">PRESENT</button>
+    </div>
+<br>
+    <div id="buttonpresent">
+        <button onclick="location.href='future.html'">FUTURE</button>
+    </div>
+
+<script>
+        const button = document.getElementById('narrateButton');
+        
+        const text = document.getElementById('narrate');
+        
+        
+        button.addEventListener('click', () => {
+         
+          const utterance = new SpeechSynthesisUtterance(text.innerText);
+          utterance.rate = 0.9;
+          
+        
+          speechSynthesis.speak(utterance);
+});
+</script>
+
+</body>
+</html>

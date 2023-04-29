@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning</title>
+    <style>
+
+    body {
+    background-image: url("https://wallpaperaccess.com/full/7953137.jpg" );
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 150%;
+    overflow: hidden;
+    }
+
+    h2 {
+        color: aliceblue;
+        text-align: left;
+
+    }
+
+    p {
+        color: aliceblue;
+    }
+
+    h1 {
+        color: black;
+        padding-top: 08%;
+        text-align: center;
+        
+    }
+
+    h3 {
+        color: aliceblue;
+        text-align: left;
+     
+    }
+
+.imgcontainer {
+   display: flex;
+   justify-content: center;
+  }
+
+.imgcontainer p {
+  text-align: center;
+  font-size: 2em;
+}
+
+#morning {
+  display: flex;
+  justify-content: center;
+  font-size: 2em;
+}
+
+#buttoncontainer {
+
+display: flex;
+justify-content: center;
+}
+
+#narratebtncontainer{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 0.2%;
+        margin-bottom: 0.3%;
+    }
+    
+#narratebtncontainer #narrateButton{
+        font-family: 'Poppins';
+        color: white;
+        margin: 10px;
+        padding: 1vw 1.5vw;
+        background: none;
+        border: 3px solid rgb(3, 18, 30);
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 5px;
+
+}
+
+#narratebtncontainer #narrateButton:hover{
+        background-color: rgb(255, 247, 0);
+}
+    
+    
+    @media only screen and (max-width: 820px) {
+
+            #title h1{
+                font-size: 5em;
+                text-align: center;
+            }
+    }
+    
+
+#buttonpresent {
+    display: flex;
+justify-content: center;
+}
+
+
+
+
+
+
+</style>    
+</head>
+<body>
+    <audio autoplay="true" loop="true" src="morning.mp3" type="audio/mp3"></audio>
+
+
+    <div id="narratebtncontainer"><button id="narrateButton">READ FOR ME</button></div>
+    <div id="morning">
+        <h1>MORNING</h1>
+      </div>
+        
+        <div class="imgcontainer">
+        <p id="narrate">WAKING UP FROM THE BED AND THEN PLANNING FOR THE REST OF THE DAY, 
+        <br>WITH SOME GOALS TO ACHIEVE YOU SET TO GO CHASE THEM.
+        <br>
+        <br>
+        GETTING READY TO GO TO COLLEGE AND
+       <br>THEN YOU PLAN OUT THE NEW AGENDA FOR THE REST OF THE DAY
+       <br>
+    <br>
+    THEN YOU JUST SKIP 
+    <br>SO YOU GET BACK TO THE PRESENT MOMENT.</p>
+    </div>
+
+<div id="buttonpresent">
+<button onclick="location.href='index.html'">PRESENT</button>
+</div>
+
+<script>
+const button = document.getElementById('narrateButton');
+
+const text = document.getElementById('narrate');
+
+
+button.addEventListener('click', () => {
+ 
+  const utterance = new SpeechSynthesisUtterance(text.innerText);
+  utterance.rate = 0.9;
+  
+
+  speechSynthesis.speak(utterance);
+});
+
+</script>
+
+</body>
+</html>

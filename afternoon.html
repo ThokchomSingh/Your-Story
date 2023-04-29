@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+    background-image: url("https://live.staticflickr.com/65535/48032700682_3d55b64ae6_b.jpg" );
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 150%;
+    overflow: hidden;
+    }
+
+
+    h2 {
+        color: aliceblue;
+        text-align: left;
+
+    }
+
+    p {
+        color: aliceblue;
+    }
+
+    h1 {
+        color: white;
+        padding-top: 15%;
+        text-align: center;
+        
+    }
+
+    h3 {
+        color: aliceblue;
+        text-align: left;
+     
+    }
+
+.imgcontainer {
+   display: flex;
+   justify-content: center;
+  }
+
+.imgcontainer p {
+  text-align: center;
+  font-size: 2em;
+}
+
+#afternoon {
+  display: flex;
+  justify-content: center;
+  font-size: 2em;
+  margin-top: -12%;
+}
+
+#buttoncontainer {
+
+display: flex;
+justify-content: center;
+}
+
+#narratebtncontainer{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 0.2%;
+        margin-bottom: 0.3%;
+    }
+    
+#narratebtncontainer #narrateButton{
+        font-family: 'Poppins';
+        color: white;
+        margin: 10px;
+        padding: 1vw 1.5vw;
+        background: none;
+        border: 3px solid rgb(3, 18, 30);
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 5px;
+
+}
+
+#narratebtncontainer #narrateButton:hover{
+        background-color: rgba(0, 255, 60, 0.681);
+}
+    
+    
+    @media only screen and (max-width: 820px) {
+
+            #title h1{
+                font-size: 5em;
+                text-align: center;
+            }
+    }
+
+#buttonpresent {
+    display: flex;
+justify-content: center;
+}
+
+
+
+
+</style>   
+</head>
+<body>
+    <audio autoplay="true" loop="true" src="afternoon.mp3" type="audio/mp3"></audio>
+
+    
+    <div id="narratebtncontainer"><button id="narrateButton">READ FOR ME</button></div>
+    <div id="afternoon">
+        <h1>AFTERNOON</h1>
+    </div>
+
+    <div class="imgcontainer">
+        <p id="narrate">YOU HAVE BEEN SEEING THINGS OFTEN HAPPENING 
+        <br>FEELING GREAT AND THEN YOU HAVE NOTHING
+        <br>BUT THE THOUGHTS OF THE THINGS THAT
+        <br>HAPPENED IN THE MORNING
+        <br>
+        <br>
+      
+    <br>YOU STILL HAVE THE OPTION OF GOING TO PRESENT AND LIVING THE MOMENT</p>
+    </div>
+    
+  
+
+
+    <h3 style="text-align: center">LIVE THE MOMENT</h3>
+    <div id="buttonpresent">
+    <button  onclick="location.href='index.html'">PRESENT</button>
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <h3 style="text-align: center">FEELING MOTIVATED ?</h3>
+
+    <div id="buttonpresent">
+<button onclick="location.href='motivation.html'">MOTIVATED</button>
+</div>
+
+<script>
+const button = document.getElementById('narrateButton');
+
+const text = document.getElementById('narrate');
+
+
+button.addEventListener('click', () => {
+ 
+  const utterance = new SpeechSynthesisUtterance(text.innerText);
+  utterance.rate = 0.9;
+  
+
+  speechSynthesis.speak(utterance);
+});
+
+</script>
+</body>
+</body>
+</html>

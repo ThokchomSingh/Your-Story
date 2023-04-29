@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opening</title>
+    <style>
+    body {
+      height: 3000px; /* Set a large height for the body to create a scrollable area */
+      background-image: url("https://images.hdqwalls.com/wallpapers/planets-in-galaxy-4k-ad.jpg" );
+      
+      background-size: cover;
+      background-position: center center;
+      width: 100%;
+      height: 150%;
+      overflow: hidden;
+     
+    }
+
+    h2 {
+        color: aliceblue;
+        text-align: left;
+        padding-left: 5%;
+
+    }
+
+    p {
+        color: aliceblue;
+        
+    }
+
+    h1 {
+        color: aliceblue;
+        padding-top: 15%;
+        text-align: center;
+        padding-left: 5%;
+        
+    }
+
+    h3 {
+        color: aliceblue;
+        text-align: center;
+        padding-left: 5%;
+     
+    }
+
+    .button {
+        text-align: center;
+        padding-left: 5%;
+        margin-left: 100%;
+    }
+
+    .earth {
+      width: 200px;
+      height: 200px;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/480px-The_Earth_seen_from_Apollo_17.jpg');
+      background-size: cover;
+      border-radius: 180%;
+      animation: rotate 10s linear infinite;
+    }
+
+
+
+
+    .imgcontainer {
+   display: flex;
+   justify-content: center;
+   
+  }
+
+.imgcontainer p {
+  text-align: center;
+  font-size: 2em;
+}
+
+#present {
+  display: flex;
+  justify-content: center;
+  font-size: 2em;
+  margin-top: -08%;
+ 
+}
+
+#buttoncontainer {
+
+display: flex;
+justify-content: center;
+}
+
+
+#futurelink {
+  display: flex;
+justify-content: center;
+}
+
+#pastlink {
+  display: flex;
+justify-content: center;
+}
+
+
+#narratebtncontainer{
+  display: flex;
+        justify-content: flex-end;
+        margin-top: 0.2%;
+        margin-bottom: 0.3%;
+}
+    
+#narratebtncontainer #narrateButton{
+  font-family: 'Poppins';
+  color: white;
+  margin: 10px;
+        padding: 1vw 2vw;
+        background: none;
+        border: 3px solid rgb(3, 18, 30);
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 5px;
+
+    }
+
+#narratebtncontainer #narrateButton:hover{
+        background-color: rgb(51, 0, 255);
+    }
+    
+    
+        @media only screen and (max-width: 820px) {
+
+            #title h1{
+                font-size: 5em;
+                text-align: center;
+            }
+          }
+    
+
+
+@keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+
+    </style>
+</head>
+
+
+
+
+<body>
+
+    <audio autoplay="true" loop="true" src="intro.mp3" type="audio/mp3"></audio>
+    <button id="toggle-scroll-btn">Auto Scroll</button>
+
+
+    <div id="narratebtncontainer"><button id="narrateButton">READ FOR ME</button></div>
+<div id="present">
+    <h1>PRESENT DAY</h1>
+  </div>
+    
+    <div class="imgcontainer">
+    <p id="narrate">EVERYTHING WAS OK AND THEN YOU WAKE UP
+    <br>
+    TO REALISE THAT YOU DONT UNDERSTAND WHAT IS HAPPENING
+    <br>
+    IT IS OK YOU KEEP SAYING THINGS IN YOUR HEAD
+   <br>
+   CHOOSE WHAT YOU WISH TO SEE FOR YOURSELF TODAY </p>
+   </div>
+    
+
+<br>
+ <div id="buttoncontainer"> 
+<button onclick="location.href='morning.html'">MORNING</button>
+<button onclick="location.href='afternoon.html'">AFTERNOON</button>
+<button onclick="location.href='night.html'">NIGHT</button>
+</div>  
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h3>FUTURE IF YOU WANT TO SEE WHAT WAITS FOR YOU </h3>
+<div id="futurelink">
+<a href="future.html">FUTURE</a>
+</div>
+<br>
+
+<h3>PAST IF YOU WANT TO CHERISH THE MOMENTS YOU CREATED</h3>
+<div id="pastlink">
+<a href="past.html">PAST</a>
+</div>
+
+<div class="earth"></div>
+<div class="button"></div>
+<main>
+</main>
+
+<script>
+
+
+let isAutoScrolling = true; // Start with auto-scrolling enabled
+    let autoScrollIntervalId; // Store the interval ID for clearing it later
+
+    function autoScroll() {
+      if (isAutoScrolling) {
+        window.scrollBy(0, 1); // Scroll down by 1 pixel
+      }
+    }
+
+    function toggleAutoScroll() {
+      if (isAutoScrolling) {
+        clearInterval(autoScrollIntervalId); // Stop the auto-scrolling
+        isAutoScrolling = false;
+        document.getElementById("toggle-scroll-btn").textContent = "Press Space Bar";
+      } else {
+        autoScrollIntervalId = setInterval(autoScroll, 0.5); // Start the auto-scrolling
+        isAutoScrolling = true;
+        document.getElementById("toggle-scroll-btn").textContent = "Press Space Bar";
+      }
+    }
+
+    document.getElementById("toggle-scroll-btn").addEventListener("click", toggleAutoScroll); // Attach event listener to the button
+
+
+const button = document.getElementById('narrateButton');
+
+const text = document.getElementById('narrate');
+
+
+button.addEventListener('click', () => {
+ 
+  const utterance = new SpeechSynthesisUtterance(text.innerText);
+  utterance.rate = 0.9;
+  
+
+  speechSynthesis.speak(utterance);
+});
+
+</script>
+</body>
+</html>
